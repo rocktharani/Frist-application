@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Calculator</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif; /* Modern font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8; /* Light background */
+        }
+
+        /* Calculator Container */
+        .calculator {
+            width: 320px;
+            background-color: #ffffff; /* White background for calculator */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #1f4f82; /* Deep blue border */
+        }
+
+        /* Screen for Calculator Display */
+        .screen {
+            width: calc(100% - 20px);
+            height: 80px;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 2.5em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #e0e6ed; /* Light grey background for screen */
+            color: #1f4f82; /* Deep blue text */
+        }
+
+        /* Button Styles */
+        .button {
+            width: 70px;
+            height: 70px;
+            margin: 10px 5px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: #1f4f82; /* Deep blue button background */
+            color: #ffffff; /* White text on buttons */
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button Hover Effects */
+        .button:hover {
+            background-color: #163c64; /* Darker blue on hover */
+        }
+
+        /* Active Button State */
+        .button:active {
+            background-color: #0f2a45;
+        }
+
+        /* Row Layout */
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="screen" class="screen" disabled />
+        <div class="row">
+            <button class="button" onclick="clearScreen()">C</button>
+            <button class="button" onclick="deleteLast()">DEL</button>
+            <button class="button" onclick="input('/')">/</button>
+            <button class="button" onclick="input('*')">*</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="input('7')">7</button>
+            <button class="button" onclick="input('8')">8</button>
+            <button class="button" onclick="input('9')">9</button>
+            <button class="button" onclick="input('-')">-</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="input('4')">4</button>
+            <button class="button" onclick="input('5')">5</button>
+            <button class="button" onclick="input('6')">6</button>
+            <button class="button" onclick="input('+')">+</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="input('1')">1</button>
+            <button class="button" onclick="input('2')">2</button>
+            <button class="button" onclick="input('3')">3</button>
+            <button class="button" onclick="calculate()">=</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="input('0')">0</button>
+            <button class="button" onclick="input('.')">.</button>
+        </div>
+    </div>
+
+    <script>
+        function input(value) {
+            document.getElementById('screen').value += value;
+        }
+
+        function clearScreen() {
+            document.getElementById('screen').value = '';
+        }
+
+        function deleteLast() {
+            let screen = document.getElementById('screen').value;
+            document.getElementById('screen').value = screen.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                let result = eval(document.getElementById('screen').value);
+                document.getElementById('screen').value = result;
+            } catch (e) {
+                document.getElementById('screen').value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
