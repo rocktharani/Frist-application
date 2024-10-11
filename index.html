@@ -7,19 +7,19 @@
     <style>
         /* Global Styles */
         body {
-            font-family: 'Arial', sans-serif; /* Modern font */
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f4f8; /* Light background */
+            background-color: #ffffff; /* White background */
         }
 
         /* Calculator Container */
         .calculator {
             width: 320px;
-            background-color: #ffffff; /* White background for calculator */
+            background-color: #000000; /* Black background for calculator */
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -48,20 +48,25 @@
             font-size: 1.5em;
             cursor: pointer;
             border-radius: 10px;
-            background-color: #1f4f82; /* Deep blue button background */
-            color: #ffffff; /* White text on buttons */
             border: none;
             transition: background-color 0.3s ease;
         }
 
-        /* Button Hover Effects */
-        .button:hover {
-            background-color: #163c64; /* Darker blue on hover */
+        /* Main Buttons (Green) */
+        .main-button {
+            background-color: #1e7f5c; /* Green button background */
+            color: #ffffff; /* White text on buttons */
         }
 
-        /* Active Button State */
-        .button:active {
-            background-color: #0f2a45;
+        /* Special Operations (Pink) */
+        .special-button {
+            background-color: #ff4f81; /* Pink button background */
+            color: #ffffff; /* White text on buttons */
+        }
+
+        /* Button Hover Effects */
+        .button:hover {
+            opacity: 0.8; /* Simple hover effect */
         }
 
         /* Row Layout */
@@ -75,32 +80,32 @@
     <div class="calculator">
         <input type="text" id="screen" class="screen" disabled />
         <div class="row">
-            <button class="button" onclick="clearScreen()">C</button>
-            <button class="button" onclick="deleteLast()">DEL</button>
-            <button class="button" onclick="input('/')">/</button>
-            <button class="button" onclick="input('*')">*</button>
+            <button class="special-button button" onclick="clearScreen()">C</button>
+            <button class="special-button button" onclick="deleteLast()">DEL</button>
+            <button class="special-button button" onclick="input('/')">/</button>
+            <button class="special-button button" onclick="input('*')">*</button>
         </div>
         <div class="row">
-            <button class="button" onclick="input('7')">7</button>
-            <button class="button" onclick="input('8')">8</button>
-            <button class="button" onclick="input('9')">9</button>
-            <button class="button" onclick="input('-')">-</button>
+            <button class="main-button button" onclick="input('7')">7</button>
+            <button class="main-button button" onclick="input('8')">8</button>
+            <button class="main-button button" onclick="input('9')">9</button>
+            <button class="special-button button" onclick="input('-')">-</button>
         </div>
         <div class="row">
-            <button class="button" onclick="input('4')">4</button>
-            <button class="button" onclick="input('5')">5</button>
-            <button class="button" onclick="input('6')">6</button>
-            <button class="button" onclick="input('+')">+</button>
+            <button class="main-button button" onclick="input('4')">4</button>
+            <button class="main-button button" onclick="input('5')">5</button>
+            <button class="main-button button" onclick="input('6')">6</button>
+            <button class="special-button button" onclick="input('+')">+</button>
         </div>
         <div class="row">
-            <button class="button" onclick="input('1')">1</button>
-            <button class="button" onclick="input('2')">2</button>
-            <button class="button" onclick="input('3')">3</button>
-            <button class="button" onclick="calculate()">=</button>
+            <button class="main-button button" onclick="input('1')">1</button>
+            <button class="main-button button" onclick="input('2')">2</button>
+            <button class="main-button button" onclick="input('3')">3</button>
+            <button class="special-button button" onclick="calculate()">=</button>
         </div>
         <div class="row">
-            <button class="button" onclick="input('0')">0</button>
-            <button class="button" onclick="input('.')">.</button>
+            <button class="main-button button" onclick="input('0')">0</button>
+            <button class="main-button button" onclick="input('.')">.</button>
         </div>
     </div>
 
